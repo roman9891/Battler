@@ -3,31 +3,12 @@ import UserInfo from './Components/UserInfo'
 import EnemyInfo from './Components/EnemyInfo'
 import Actions from './Components/Actions'
 import BattleLog from './Components/BattleLog'
+import Monsters from './Monsters'
 import './App.css';
 
-const monster = {
-  name: `Test Monster`,
-  hp: 100,
-  pattern: `a`,
-  actions: [
-    {
-      name: `attacks`,
-      power: 20,
-      effect: {}
-    },
-    {
-      name: `charges up`,
-      power: 0,
-      effect: {}
-    },
-    {
-      name: `power attacks`,
-      power: 50,
-      effect: {}
-    }
-  ],
-  image: ``
-}
+console.log(Monsters)
+
+const monster = Monsters[1]
 
 const user = {
   name: `Roman`,
@@ -124,7 +105,7 @@ class App extends React.Component {
     console.log(`render`)
     return (
       <div className="App">
-        <EnemyInfo enemyDamage={this.state.enemyDamage}/>
+        <EnemyInfo monster={monster} enemyDamage={this.state.enemyDamage}/>
         <UserInfo userDamage={this.state.userDamage}/>
         <Actions actions={user.actions} appHandler={this.appHandler}/>
         <BattleLog logs={this.state.logs}/>

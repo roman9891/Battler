@@ -7,6 +7,7 @@
   border: 1px solid black;
   width: 50%;
   height: 25vh;
+  display: flex;
 }
 
 #user {
@@ -26,4 +27,19 @@
   width: 50%;
   height: 25vh;
   overflow-y: scroll;
+}
+
+#enemy-image {
+  border: 1px solid black;
+  display: inline-block;
+  left: 0px;
+  position: relative;
+  height: 100%;
+}
+
+#enemy-stats {
+  display: inline-block;
+  left: 0px;
+  border: 1px solid black;
+  position: relative;
 }
