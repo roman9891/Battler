@@ -4,40 +4,12 @@ import EnemyInfo from './Components/EnemyInfo'
 import Actions from './Components/Actions'
 import BattleLog from './Components/BattleLog'
 import Monsters from './Monsters'
+import Users from './Users'
 import './App.css';
-
-console.log(Monsters)
 
 const monster = Monsters[1]
 
-const user = {
-  name: `Roman`,
-  hp: 100,
-  actions: [
-    {
-      name: `attack`,
-      power: 20,
-      effect: {
-        userMitigation: 1
-      }
-    },
-    {
-      name: `block`,
-      power: 0,
-      effect: {
-        userMitigation: 2
-      }
-    },
-    {
-      name: `tickle`,
-      power: 1,
-      effect: {
-        userMitigation: 1
-      }
-    }
-  ],
-  image: `` 
-}
+const user = Users[0]
 
 class App extends React.Component {
   state = {
@@ -45,11 +17,11 @@ class App extends React.Component {
     enemyDamage: 0,
     enemyMitigation: 1,
     enemyEffects: {
-      userMitigation: 1
+      mitigation: 1
     },
     userDamage: 0,
     userEffects: {
-      userMitigation: 1
+      mitigation: 1
     },
     logs: [`You encounter ${monster.name}`]
   }
@@ -69,10 +41,22 @@ class App extends React.Component {
   userTurn = (action) => {
     this.setState({
       userEffects: {...this.state.userEffects, ...action.effect},
-      enemyDamage: this.state.enemyDamage + Math.floor(action.power/this.state.enemyEffects.userMitigation),
+      enemyDamage: this.state.enemyDamage + Math.floor(action.power/this.state.enemyEffects.mitigation),
       logs: [`You use ${action.name}!`, ...this.state.logs],
     }, this.checkVictory)
   }
+
+  //apply buffs
+  //for each key in buff object
+  //this.setState({[key]: this.state[key] + object[key]})
+  //buffs = [[buffkey, buffVal, buffTurns]]
+
+  //eot
+  //for each item in buffs array
+  //thatItem[2] = thatItem[2] - 1
+  //if thatItem[2] = 0
+  //setState({thatItem[0]: this.state[thatItem0] - thatItem[1]})
+  //remove that item from array
 
   checkVictory = () => {
     if (this.state.enemyDamage >= monster.hp) {
@@ -90,7 +74,7 @@ class App extends React.Component {
     
     this.setState({
       enemyEffects: {...this.state.enemyEffects, ...action.effect},
-      userDamage: this.state.userDamage + Math.floor(action.power / this.state.userEffects.userMitigation),
+      userDamage: this.state.userDamage + Math.floor(action.power / this.state.userEffects.mitigation),
       logs: [`${monster.name} ${action.name}!`, ...this.state.logs]
     }, this.checkDefeat)
   }
@@ -102,7 +86,7 @@ class App extends React.Component {
   }
   
   render() {
-    console.log(`render`)
+    console.log(this.state['turn'])
     return (
       <div className="App">
         <EnemyInfo monster={monster} enemyDamage={this.state.enemyDamage}/>
