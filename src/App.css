@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+#enemy {
+  border: 1px solid black;
+  width: 50%;
+  height: 25vh;
+}
+
+#user {
+  border: 1px solid black;
+  width: 50%;
+  height: 25vh;
+}
+
+#actions {
+  border: 1px solid black;
+  width: 50%;
+  height: 25vh;
+}
+
+#log {
+  border: 1px solid black;
+  width: 50%;
+  height: 25vh;
+  overflow-y: scroll;
+}
