@@ -1,6 +1,12 @@
 .App {
+  display: flex;
+  flex-direction: row;
   text-align: center;
   height: 100%;
+}
+
+#battle-container {
+  width: 100%;
 }
 
 #enemy {
@@ -14,12 +20,13 @@
   border: 1px solid black;
   width: 50%;
   height: 25vh;
+  display: flex;
 }
 
 #actions {
   border: 1px solid black;
   width: 50%;
-  height: 25vh;
+  height: 10vh;
 }
 
 #log {
@@ -35,11 +42,100 @@
   left: 0px;
   position: relative;
   height: 100%;
+  width: 50%;
 }
 
 #enemy-stats {
-  display: inline-block;
-  left: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
   border: 1px solid black;
-  position: relative;
+ 
+}
+
+#enemy-hp {
+  background-color: lightgreen;
+  height: 10px;
+}
+
+.hp {
+  background-color: lightgreen;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 10px;
+}
+
+.energy-bar {
+  background-color: lightskyblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 10px;
+}
+
+#user-stats {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid black;
+}
+
+#user-image {
+  width: 50%;
+}
+
+#hoverInfo {
+  background-color: lightskyblue;
+  width: 30%;
+}
+
+.info {
+  text-align: left;
+}
+
+.status-icon-row {
+  display: flex;
+  border: 1px solid black;
+}
+
+.status-icon {
+  border: 1px solid black;
+  height: auto;
+  width: 13.5%;
+}
+
+#enemy-container {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+}
+
+.enemy-card {
+  display: flex;
+  /* flex-direction: column; */
+  align-content: center;
+  background-color: rgb(162, 191, 247);
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 1%;
+  margin: 1%;
+  height: 40vh;
+  width: 30vh;
+}
+
+.enemy-image {
+  border: 1px solid black;
+  background-color: rgb(128, 128, 128);
+  width: 100%;
+  height: 70%;
+  border-radius: 10px;
+}
+
+#victory {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  background-color: rgb(194, 139, 67);
+  border-radius: 10px;
+  height: 40vh;
+  width: 100%;
 }

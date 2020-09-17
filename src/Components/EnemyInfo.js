@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 
 class EnemyInfo extends Component {
-    state = {
-        name: this.props.monster.name,
-        hp: 100
+    state = {...this.props.enemy}
+
+    hoverHandler = () => {
+        console.log(`hi`)
+        this.props.infoHandler({
+            test: `test`,
+            dummy: `data`,
+            target: `Enemy`
+        })
     }
 
     render() {
+        const styleObj = {width: `${((this.props.enemy.hp - this.props.enemyDamage) / this.props.enemy.hp)*100}%`}
+
         return (
-            <div id='enemy'>
-                <img id="enemy-image" src={this.props.monster.image}></img>
+            <div id='enemy' onMouseEnter={this.hoverHandler}>
+                <img id="enemy-image" src={this.props.enemy.image} alt=''></img>
                 <div id="enemy-stats">
                     <p>{this.state.name}</p>
-                    <p>{this.state.hp - this.props.enemyDamage}/100</p>
+                    <p>{(this.props.enemy.hp - this.props.enemyDamage)} / {this.props.enemy.hp}</p>
+                    <div id='enemy-hp' style={styleObj}></div>
                 </div>
             </div>
         );

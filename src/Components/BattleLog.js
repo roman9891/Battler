@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class BattleLog extends Component {
-    renderLogs = () => this.props.logs.map(log => <p>{log}</p>)
+    renderLogs = () => this.props.logs.map((log, i)=> <p key={i}>{log}</p>)
     
     render() {
         return (

@@ -1,0 +1,7 @@
+//this.checkVictory()
+
+    // this.setState({
+    //   userEffects: {...this.state.userEffects, ...action.effect},
+    //   enemyDamage: this.state.enemyDamage + Math.floor(action.power/this.state.enemyEffects.mitigation),
+    //   logs: [`You use ${action.name}!`, ...this.state.logs],
+    // }, this.checkVictory)
